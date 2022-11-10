@@ -1,4 +1,26 @@
-const dialogsReducer = (state, action) => {
+let initialState = {
+    dialogs: [
+        {id: 1, name: 'Evgeniy'},
+        {id: 2, name: 'Alexander'},
+        {id: 3, name: 'Alena'},
+        {id: 4, name: 'Sveta'},
+        {id: 5, name: 'Konstantin'},
+        {id: 5, name: 'Konstantin'},
+        {id: 5, name: 'Konstantin'},
+      ],
+      
+    messages: [
+        {id: 1, message: 'Hi',},
+        {id: 2, message: 'How are you'},
+        {id: 3, message: 'Welcome'},
+        {id: 3, message: 'Welcome'},
+        {id: 3, message: 'Welcome'},
+      ],
+
+    newMessageBody: ''
+};
+
+const dialogsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'UPDATE-NEW-MESSAGE-BODY':
