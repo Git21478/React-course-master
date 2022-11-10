@@ -7,11 +7,11 @@ import React from 'react'
 
 const Dialogs = (props) => {
 
-    let state = props.store.getState().dialogsPage;
+    let state1 = props.store.getState().dialogsPage;
 
-    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
-    let messagesElements = state.messages.map(m => <Message message={m.message}/>)
-    let newMessageBody = state.newMessageBody
+    let dialogsElements = state1.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
+    let messagesElements = state1.messages.map(m => <Message message={m.message}/>)
+    let newMessageBody = state1.newMessageBody
 
     let onSendMessageClick = () => {
         props.store.dispatch({type: 'SEND-MESSAGE'})
