@@ -50,8 +50,6 @@ _callSubscriber() {
     console.log('State was changed')
 },
 
-
-
 dispatch(action) {
 
     this._state.profilePage = profileReducer(this._state.profilePage, action)
