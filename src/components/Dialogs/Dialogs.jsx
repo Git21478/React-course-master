@@ -7,18 +7,19 @@ import React from 'react'
 
 const Dialogs = (props) => {
 
-    let state1 = props.store.getState().dialogsPage;
+    let state1 = props.dialogsPage;
 
     let dialogsElements = state1.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
     let messagesElements = state1.messages.map(m => <Message message={m.message}/>)
     let newMessageBody = state1.newMessageBody
 
     let onSendMessageClick = () => {
-        props.store.dispatch({type: 'SEND-MESSAGE'})
+        props.sendMessage()
     }
 
     let onNewMessageChange = (e) => {
         let body = e.target.value
+        props.updateNewMessageBody(body)
         props.store.dispatch({type: 'UPDATE-NEW-MESSAGE-BODY', body: body})
     }
 
