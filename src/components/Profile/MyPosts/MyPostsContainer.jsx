@@ -1,26 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import StoreContext from '../../../StoreContext';
 import MyPosts from './MyPosts';
 
 
 
 const mapStateToProps = (state) => {
-    return (
+    return ({
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText
-    )
+})
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return (
+    return ({
         updateNewPostText: (text) => {
             dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
         },
         addPost: () => {
-            dispatch(store.dispatch({type: 'ADD-POST'}))
+            dispatch({type: 'ADD-POST'})
         }
-    )
+})
 }
 
 const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
