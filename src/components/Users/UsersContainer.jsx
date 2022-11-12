@@ -3,12 +3,24 @@ import React from 'react'
 import { connect } from 'react-redux';
 import Users from './Users';
 
-const UsersContainer = (props) => {
-    return (
-        <div className={s.users}>
-            Users will be here
-        </div>
-    )
+const mapStateToProps = (state) => {
+    return {
+        users: state.usersPage.users
+    }
 }
 
-export default UsersContainer;
+let mapDispatchToProps = (dispatch) => {
+    return {
+        follow: (userId) => {
+            dispatch({type: 'FOLLOW', id: userId})
+        },
+        unfollow: (userId) => {
+            dispatch({type: 'UNFOLLOW', id: userId})
+        },
+        setUsers: (users) => {
+            dispatch({type: 'SET-USERS', users: users})
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users)

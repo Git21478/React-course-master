@@ -1,9 +1,5 @@
 let initialState = {
-    users: [
-        {id: 1, followed: false, fullName: 'Dmitry', status: 'I am a boss', location: {city: 'Minsk', country: 'Belarus'}},
-        {id: 2, followed: false, fullName: 'Dmitry', status: 'I am a boss too', location: {city: 'Minsk', country: 'Belarus'}},
-        {id: 3, followed: false, fullName: 'Dmitry', status: 'I am a boss', location: {city: 'Minsk', country: 'Belarus'}},
-    ]
+    users: []
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -14,17 +10,17 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        return (...u, followed: true)
+                        return {...u, followed: true}
                     }
                     return u
                 })}
-                
+
         case 'UNFOLLOW':
             return {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        return (...u, followed: false)
+                        return {...u, followed: false}
                     }
                     return u
                 })}
