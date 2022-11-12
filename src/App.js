@@ -5,6 +5,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
+import Users from './components/Users/Users';
 
 const App = (props) => {
   return (
@@ -17,6 +18,7 @@ const App = (props) => {
         <Routes>
           <Route element={<Profile/>} path="/profile/*"/>
           <Route element={<DialogsContainer/>} path="/dialogs/*"/>
+          <Route element={<Users/>} path="/users/*"/>
         </Routes>
       </div>
     </div>
