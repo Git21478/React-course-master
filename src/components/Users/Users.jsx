@@ -23,7 +23,7 @@ let Users = (props) => {
                         <div>
                             {u.followed
                                 ? <button onClick={() => {props.unfollow(u.id)}}>Unfollow</button>
-                                : <button onCLick={() => {props.follow(u.id)}}>Follow</button>}
+                                : <button onClick={() => {props.follow(u.id)}}>Follow</button>}
                         </div>
                     </span>
                     <span>
