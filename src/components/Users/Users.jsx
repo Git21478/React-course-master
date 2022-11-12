@@ -2,7 +2,13 @@ import s from './Users.module.css'
 import React from 'react'
 let Users = (props) => {
 
- 
+    if (props.users.length === 0) {
+        props.setUsers([
+            {id: 1, followed: false, fullName: 'Dmitry', status: 'I am a boss', location: {city: 'Minsk', country: 'Belarus'}, photoUrl: 'https://regnum.ru/uploads/pictures/news/2019/04/30/regnum_picture_155657981249331_normal.jpg'},
+            {id: 2, followed: true, fullName: 'Dmitry', status: 'I am a boss too', location: {city: 'Minsk', country: 'Belarus'}, photoUrl: 'https://regnum.ru/uploads/pictures/news/2019/04/30/regnum_picture_155657981249331_normal.jpg'},
+            {id: 3, followed: false, fullName: 'Dmitry', status: 'I am a boss', location: {city: 'Minsk', country: 'Belarus'}, photoUrl: 'https://regnum.ru/uploads/pictures/news/2019/04/30/regnum_picture_155657981249331_normal.jpg'},
+        ])
+    }
     
 
     return <div>
