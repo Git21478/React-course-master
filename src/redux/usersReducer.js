@@ -29,13 +29,15 @@ const usersReducer = (state = initialState, action) => {
                 })}
 
         case 'SET-USERS':
-            return { ...state, users: [...state.users, ...action.users]}
+            return { ...state, users: [...action.users]}
+
+        case 'SET-CURRENT-PAGE': {
+            return { ...state, currentPage: action.currentPage}
+        }
 
         default:
             return state
     }
-
-    return state;
 }
 
 export default usersReducer

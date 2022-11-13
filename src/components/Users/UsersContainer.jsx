@@ -22,6 +22,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setUsers: (users) => {
             dispatch({type: 'SET-USERS', users})
+        },
+        setCurrentPage: (currentPage) => {
+            dispatch({ type: 'SET-CURRENT-PAGE', currentPage})
         }
     }
 }
