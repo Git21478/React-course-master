@@ -25,7 +25,10 @@ let mapDispatchToProps = (dispatch) => {
         },
         setCurrentPage: (currentPage) => {
             dispatch({ type: 'SET-CURRENT-PAGE', currentPage})
-        }
+        },
+        setUsersTotalCount: (totalCount) => {
+            dispatch({ type: 'SET-USERS-TOTAL-COUNT', totalCount})
+        },
     }
 }
 

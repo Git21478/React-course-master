@@ -1,7 +1,7 @@
 let initialState = {
     users: [],
     pageSize: 5,
-    totalUsersCount: 20,
+    totalUsersCount: 0,
     currentPage: 1
 }
 
@@ -33,6 +33,10 @@ const usersReducer = (state = initialState, action) => {
 
         case 'SET-CURRENT-PAGE': {
             return { ...state, currentPage: action.currentPage}
+        }
+
+        case 'SET-USERS-TOTAL-COUNT': {
+            return { ...state, totalUsersCount: action.totalCount}
         }
 
         default:
