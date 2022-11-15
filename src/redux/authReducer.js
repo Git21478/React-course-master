@@ -11,9 +11,9 @@ const authReducer = (state = initialState, action) => {
         case 'SET-AUTH-USER-DATA':
             return {
                 ...state,
-                ...action.data,
+                //...action.data,
+                login: action.login,
                 isAuth: true,
-                login: '1234'
             }
 
         
