@@ -40,7 +40,7 @@ let Users = (props) => {
                                         }                                  
                                 })
                                     .then(response => {
-                                        if (response.data.resultCode == 0) {
+                                        if (response.data.resultCode === 0) {
                                             props.unfollow(u.id)
                                         }
                                         props.toggleIsFollowingProgress(false, u.id)
