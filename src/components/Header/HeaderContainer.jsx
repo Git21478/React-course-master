@@ -31,12 +31,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        setAuthUserData: (id, login, email) => {
-            dispatch(setAuthUserData(id, login, email))
-        },
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
+
+export default connect(mapStateToProps, {
+    setAuthUserData
+})(HeaderContainer);
