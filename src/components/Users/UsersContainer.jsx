@@ -36,7 +36,9 @@ class UsersContainer extends React.Component {
                         currentPage={this.props.currentPage}
                         users={this.props.users}
                         follow={this.props.follow}
-                        unfollow={this.props.unfollow} />
+                        unfollow={this.props.unfollow}
+                        toggleIsFollowing={this.props.toggleIsFollowing}
+                        followingInProgress={this.props.followingInProgress} />
                         </>
     }
 }
@@ -47,7 +49,8 @@ const mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 }
 
@@ -70,6 +73,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         toggleIsFetching: (isFetching) => {
             dispatch({ type: 'TOGGLE-IS-FETCHING', isFetching})
+        },
+        toggleIsFollowing: (isFetching) => {
+            dispatch({ type: 'TOGGLE-IS-FOLLOWING-PROGRESS', isFetching})
         },
     }
 }

@@ -3,7 +3,8 @@ let initialState = {
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: true
+    isFetching: true,
+    followingInProgress: false
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -42,6 +43,10 @@ const usersReducer = (state = initialState, action) => {
 
         case 'TOGGLE-IS-FETCHING': {
             return { ...state, isFetching: action.isFetching}
+        }
+
+        case 'TOGGLE-IS-FOLLOWING-PROGRESS': {
+            return { ...state, followingInProgress: action.isFetching}
         }
 
         default:
