@@ -37,15 +37,8 @@ let mapStateToProps = (state) => ({
     profile: state.profilePage.profile
 })
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        setUserProfile: (profile) => {
-            dispatch(setUserProfile(profile))
-        }
-    }
-}
-
-
 let WithUrlDataContainerComponent = withRouter(ProfileContainer)
 
-export default connect(mapStateToProps, mapDispatchToProps)(WithUrlDataContainerComponent);
+export default connect(mapStateToProps, {
+    setUserProfile
+})(WithUrlDataContainerComponent);
