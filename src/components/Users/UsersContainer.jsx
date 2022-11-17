@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader';
 import {usersAPI} from '../../api/api'
-import { followSuccess, setCurrentPage, setTotalUsersCount, setUsers, toggleFollowingProgress, toggleIsFetching, unfollowSuccess } from '../../redux/usersReducer';
+import { follow, setCurrentPage, setUsersTotalCount, setUsers, toggleIsFetching, unfollow, toggleIsFollowingProgress } from '../../redux/usersReducer';
 
 class UsersContainer extends React.Component {
 
@@ -55,30 +55,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followSuccess(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowSuccess(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsers(users))
-        },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPage(currentPage))
-        },
-        setUsersTotalCount: (totalCount) => {
-            dispatch(setTotalUsersCount(totalCount))
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetching(isFetching))
-        },
-        toggleIsFollowingProgress: (isFetching, userId) => {
-            dispatch(toggleFollowingProgress(isFetching, userId))
-        },
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, {
+    follow, unfollow, setUsers, setCurrentPage, setUsersTotalCount, toggleIsFetching, toggleIsFollowingProgress
+})(UsersContainer)
