@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader';
-import {usersAPI}from '../../api/api'
+import {usersAPI} from '../../api/api'
 
 class UsersContainer extends React.Component {
 
@@ -37,7 +37,7 @@ class UsersContainer extends React.Component {
                         users={this.props.users}
                         follow={this.props.follow}
                         unfollow={this.props.unfollow}
-                        toggleIsFollowing={this.props.toggleIsFollowing}
+                        toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
                         followingInProgress={this.props.followingInProgress} />
                         </>
     }
@@ -74,8 +74,8 @@ let mapDispatchToProps = (dispatch) => {
         toggleIsFetching: (isFetching) => {
             dispatch({ type: 'TOGGLE-IS-FETCHING', isFetching})
         },
-        toggleIsFollowing: (isFetching) => {
-            dispatch({ type: 'TOGGLE-IS-FOLLOWING-PROGRESS', isFetching})
+        toggleIsFollowingProgress: (isFetching, userId) => {
+            dispatch({ type: 'TOGGLE-IS-FOLLOWING-PROGRESS', isFetching, userId})
         },
     }
 }
