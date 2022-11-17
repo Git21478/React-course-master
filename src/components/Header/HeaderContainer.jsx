@@ -2,6 +2,7 @@ import Header from './Header';
 import React from 'react';
 import axios from 'axios';
 import { connect } from "react-redux";
+import { setAuthUserData } from '../../redux/authReducer';
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
@@ -33,7 +34,7 @@ const mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         setAuthUserData: (id, login, email) => {
-            dispatch({type: 'SET-AUTH-USER-DATA', id, login, email})
+            dispatch(setAuthUserData(id, login, email))
         },
     }
 }

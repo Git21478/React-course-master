@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader';
 import {usersAPI} from '../../api/api'
+import { followSuccess, setCurrentPage, setTotalUsersCount, setUsers, toggleFollowingProgress, toggleIsFetching, unfollowSuccess } from '../../redux/usersReducer';
 
 class UsersContainer extends React.Component {
 
@@ -57,25 +58,25 @@ const mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         follow: (userId) => {
-            dispatch({type: 'FOLLOW', userId})
+            dispatch(followSuccess(userId))
         },
         unfollow: (userId) => {
-            dispatch({type: 'UNFOLLOW', userId})
+            dispatch(unfollowSuccess(userId))
         },
         setUsers: (users) => {
-            dispatch({type: 'SET-USERS', users})
+            dispatch(setUsers(users))
         },
         setCurrentPage: (currentPage) => {
-            dispatch({ type: 'SET-CURRENT-PAGE', currentPage})
+            dispatch(setCurrentPage(currentPage))
         },
         setUsersTotalCount: (totalCount) => {
-            dispatch({ type: 'SET-USERS-TOTAL-COUNT', totalCount})
+            dispatch(setTotalUsersCount(totalCount))
         },
         toggleIsFetching: (isFetching) => {
-            dispatch({ type: 'TOGGLE-IS-FETCHING', isFetching})
+            dispatch(toggleIsFetching(isFetching))
         },
         toggleIsFollowingProgress: (isFetching, userId) => {
-            dispatch({ type: 'TOGGLE-IS-FOLLOWING-PROGRESS', isFetching, userId})
+            dispatch(toggleFollowingProgress(isFetching, userId))
         },
     }
 }
