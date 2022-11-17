@@ -20,7 +20,6 @@ const Dialogs = (props) => {
     let onNewMessageChange = (e) => {
         let body = e.target.value
         props.updateNewMessageBody(body)
-        props.store.dispatch({type: 'UPDATE-NEW-MESSAGE-BODY', body: body})
     }
 
     return (

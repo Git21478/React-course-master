@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import { useParams } from 'react-router-dom'
+import { setUserProfile } from "../../redux/profileReducer";
 
 export function withRouter(Children){
     return(props)=>{
@@ -39,7 +40,7 @@ let mapStateToProps = (state) => ({
 let mapDispatchToProps = (dispatch) => {
     return {
         setUserProfile: (profile) => {
-            dispatch({type: 'SET-USER-PROFILE', profile})
+            dispatch(setUserProfile(profile))
         }
     }
 }
